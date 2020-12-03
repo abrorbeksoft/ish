@@ -18,9 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
         If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
     </p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+    <div style="margin: 0" class="row marginLess ">
+        <div style="width: 70%; margin-left: auto; margin-right: auto;"  class=" mx-auto">
+            <?php $form = ActiveForm::begin(['id' => 'contact-form' ]); ?>
 
                 <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
