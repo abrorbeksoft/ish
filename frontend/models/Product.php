@@ -14,9 +14,9 @@ class Product extends ActiveRecord
         return '{{product}}';
     }
 
-    public function views()
+    public function getView()
     {
-        return $this->hasMany(View::className(),['product_id'=>'id']);
+        return $this->hasOne(View::className(),['product_id'=>'id']);
     }
 
     public function getUser()

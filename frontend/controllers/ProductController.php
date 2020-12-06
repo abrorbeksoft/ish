@@ -30,6 +30,9 @@ class ProductController extends Controller
         }
 
 
+        $view=$product->view;
+        $view->views=$view->views+1;
+        $view->update();
 
         return $this->render('show',[
             'product'=>$product,

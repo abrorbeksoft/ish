@@ -32,7 +32,7 @@ class SidebarWidget extends Widget
             $str.='<li class="subMenu open"><a>'.$category->name.'</a><ul>';
             foreach ($category->subCategory as $item)
             {
-                 $str.='<li><a class="active" href="products.html"><i class="icon-chevron-right"></i>'.$item->name.'</a></li>';
+                 $str.='<li><a class="active" href="'. \yii\helpers\Url::to(['category/view','id'=>$item->id]) .'"><i class="icon-chevron-right"></i>'.$item->name.'</a></li>';
             }
             $str.="</ul>";
 
