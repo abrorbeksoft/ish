@@ -2,8 +2,11 @@
 namespace frontend\controllers;
 
 use frontend\models\Category;
+use frontend\models\Product;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
+use frontend\models\View;
+use frontend\tests\acceptance\HomeCest;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -75,11 +78,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $categories=Category::find()->indexBy('id')->all();
-//        var_dump($categories);
-//        die();
+        $views=View::find()->orderBy(['views'=>SORT_DESC])->limit(9)->all();
+
         return $this->render('index',[
-            'categories'=>$categories
+            'views'=>$views
         ]);
     }
 

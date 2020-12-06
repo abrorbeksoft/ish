@@ -11,12 +11,12 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 style="text-align: center" ><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+    <p style="text-align: center">Please fill out the following fields to login:</p>
 
-    <div class="row">
-        <div class="col-lg-5">
+    <div style="margin-left: 20px;" class="row">
+        <div style="margin-left: auto; margin-right: auto; width: 30%" >
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>

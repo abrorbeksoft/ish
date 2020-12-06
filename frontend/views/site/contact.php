@@ -11,15 +11,15 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="site-contact ">
+    <h1 style="text-align: center"><?= Html::encode($this->title) ?></h1>
 
-    <p>
+    <p style="text-align: center">
         If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
     </p>
 
-    <div style="margin: 0" class="row marginLess ">
-        <div style="width: 70%; margin-left: auto; margin-right: auto;"  class=" mx-auto">
+    <div  class="span12">
+        <div style="width: 40%; margin-left: auto; margin-right: auto; " >
             <?php $form = ActiveForm::begin(['id' => 'contact-form' ]); ?>
 
                 <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>

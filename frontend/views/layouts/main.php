@@ -4,11 +4,11 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use frontend\widgets\SidebarWidget;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -70,111 +70,33 @@ AppAsset::register($this);
                     <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                 </form>
                 <ul id="topMenu" class="nav pull-right">
-                    <li class=""><a href="<?php echo \yii\helpers\Url::to(['site/index']) ?>" >Home </a> </li>
-                    <li class=""><a  href="<?php echo \yii\helpers\Url::to(['site/about']) ?>">About  </a></li>
-                    <li class=""><a href="<?php echo \yii\helpers\Url::to(['site/contact']) ?>">Contact</a></li>
-                    <li class="">
-                        <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
-                        <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h3>Login Block</h3>
-                            </div>
-                            <div class="modal-body">
-                                <form class="form-horizontal loginFrm">
-                                    <div class="control-group">
-                                        <input type="text" id="inputEmail" placeholder="Email">
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="password" id="inputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="checkbox">
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                    </div>
-                                </form>
-                                <button type="submit" class="btn btn-success">Sign in</button>
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-                        </div>
-                    </li>
+                    <li class=""><a href="<?php echo  Url::to(['site/index']) ?>" >Home </a> </li>
+                    <li class=""><a  href="<?php echo  Url::to(['site/about']) ?>">About  </a></li>
+                    <li class=""><a href="<?php echo  Url::to(['site/contact']) ?>">Contact</a></li>
+                   <?php
+                   if (Yii::$app->user->isGuest) {
+                      echo '<li class=""><a href="'.  Html::encode(Url::to(["site/signup"])) .'">Signup</a></li>';
+                      echo '<li class=""><a href="'. Html::encode(Url::to(["site/login"])) .'">Login</a></li>';
+                    } else {
+                    echo '<li class="">'
+                        . Html::beginForm(['/site/logout'], 'post')
+                        . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                        )
+                        . Html::endForm()
+                        . '</li>';
+                    }
+                    ?>
+
                 </ul>
             </div>
         </div>
     </div>
 </div>
-<!-- Header End====================================================================== -->
-<div id="carouselBlk">
-    <div id="myCarousel" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="container">
-                    <a href="register.html"><img style="width:100%" src="<?php echo Yii ::getAlias('@imageurl') ?>/images/carousel/1.png" alt="special offers"/></a>
-                    <div class="carousel-caption">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="container">
-                    <a href="register.html"><img style="width:100%" src="<?php echo Yii ::getAlias('@imageurl') ?>/images/carousel/2.png" alt=""/></a>
-                    <div class="carousel-caption">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="container">
-                    <a href="register.html"><img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/carousel/3.png" alt=""/></a>
-                    <div class="carousel-caption">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="container">
-                    <a href="register.html"><img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/carousel/4.png" alt=""/></a>
-                    <div class="carousel-caption">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="container">
-                    <a href="register.html"><img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/carousel/5.png" alt=""/></a>
-                    <div class="carousel-caption">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="container">
-                    <a href="register.html"><img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/carousel/6.png" alt=""/></a>
-                    <div class="carousel-caption">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-</div>
 
 
-
-
-
-<!--    --><?php
+<?php
 //    NavBar::begin([
 //        'brandLabel' => Yii::$app->name,
 //        'brandUrl' => Yii::$app->homeUrl,
@@ -205,14 +127,52 @@ AppAsset::register($this);
 //        'items' => $menuItems,
 //    ]);
 //    NavBar::end();
-//    ?>
+   ?>
     <div id="mainBody" >
         <div class="container">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
             <?= Alert::widget() ?>
-            <?= $content ?>
+            <div class="row">
+                <div class="span3">
+                    <div id="sidebar" class="span3">
+                        <div class="well well-small">
+                            <a id="myCart" href="product_summary.html">
+                                <img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/ico-cart.png" alt="cart">
+                                3 Items in your cart<span class="badge badge-warning pull-right">$155.00</span>
+                            </a>
+                        </div>
+
+                        <?= SidebarWidget::widget(['categories'=>\frontend\models\Category::find()->indexBy('id')->all()])  ?>
+
+                        <div class="thumbnail">
+                            <img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera"/>
+                            <div class="caption">
+                                <h5>Panasonic</h5>
+                                <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                            </div>
+                        </div><br/>
+                        <div class="thumbnail">
+                            <img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
+                            <div class="caption">
+                                <h5>Kindle</h5>
+                                <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                            </div>
+                        </div><br/>
+                        <div class="thumbnail">
+                            <img src="<?php echo Yii ::getAlias('@imageurl') ?>/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+                            <div class="caption">
+                                <h5>Payment Methods</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="span9">
+                    <?= $content ?>
+                </div>
+            </div>
         </div>
     </div>
 

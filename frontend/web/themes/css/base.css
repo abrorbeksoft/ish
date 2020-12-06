@@ -20,7 +20,7 @@
 /* body--- */
 .thumbnail>a{display:block; text-align:center}
 .thumbnail h5,.thumbnail p{text-align:center}
-/* Product page--- */
+/* ProductController page--- */
 .alignR{text-align:right;}
 .control-label.alignL, .alignL{text-align:left;}
 .loginFrm{ margin-bottom:8px;}

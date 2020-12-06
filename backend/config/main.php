@@ -11,8 +11,16 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+    ],
     'components' => [
+//        'view' => [
+//            'theme' => [
+//                'pathMap' => [
+//                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+//                ],
+//            ],
+//        ],
         'request' => [
             'baseUrl' => '/admin',
             'csrfParam' => '_csrf-backend',
