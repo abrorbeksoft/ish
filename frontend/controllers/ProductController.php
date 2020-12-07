@@ -7,6 +7,7 @@ use frontend\models\CommentModel;
 use frontend\models\Product;
 use frontend\models\ProductModel;
 use frontend\models\SubCategory;
+use frontend\models\View;
 use phpDocumentor\Reflection\Element;
 use Yii;
 use yii\web\Controller;
@@ -34,8 +35,18 @@ class ProductController extends Controller
 
 
         $view=$product->view;
-        $view->views=$view->views+1;
-        $view->update();
+        if ($view)
+        {
+            $view->views=$view->views+1;
+            $view->update();
+        }
+        else
+        {
+            $view=new View();
+            $view->views=1;
+            $view->product_id=$product->id;
+            $view->save();
+        }
 
         return $this->render('show',[
             'product'=>$product,

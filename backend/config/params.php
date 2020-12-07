@@ -13,5 +13,6 @@ return [
                 'js' => ['toastr/toastr.min.js']
             ],
         ]
-    ]
+    ],
+    'icon-framework' => 'fa'
 ];

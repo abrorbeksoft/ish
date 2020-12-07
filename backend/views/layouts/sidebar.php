@@ -31,7 +31,7 @@
                         'items' => [
                             ['label' => 'User', 'url' => ['user/index'], 'iconStyle' => 'far'],
                             ['label' => 'Category','url'=>['category/index'], 'iconStyle' => 'far'],
-                            ['label' => 'SubCategory', 'url'=>['subCategory/index'], 'iconStyle' => 'far'],
+                            ['label' => 'SubCategory', 'url'=>['sub-category/index'], 'iconStyle' => 'far'],
                             ['label' => 'Product','url'=>['product/index'] , 'iconStyle' => 'far'],
 
                         ]

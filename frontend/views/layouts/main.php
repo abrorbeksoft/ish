@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -60,12 +60,14 @@ AppAsset::register($this);
                 <form class="form-inline navbar-search" method="post" action="products.html" >
                     <input id="srchFld" class="srchTxt" type="text" />
                     <select class="srchTxt">
-                        <option>All</option>
-                        <option>CLOTHES </option>
-                        <option>FOOD AND BEVERAGES </option>
-                        <option>HEALTH & BEAUTY </option>
-                        <option>SPORTS & LEISURE </option>
-                        <option>BOOKS & ENTERTAINMENTS </option>
+                        <option value="" >All</option>
+                        <option value="1">Electronics</option>
+
+                        <option value="2">CLOTHES </option>
+                        <option value="3">FOOD AND BEVERAGES </option>
+                        <option value="4">HEALTH & BEAUTY </option>
+                        <option value="5">SPORTS & LEISURE </option>
+                        <option value="6">BOOKS & ENTERTAINMENTS </option>
                     </select>
                     <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                 </form>

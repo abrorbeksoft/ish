@@ -16,8 +16,10 @@ use \yii\helpers\Html;
                         <h5><?= $product->name ?></h5>
                         <p><?= $product->text  ?></p>
                         <h4 style="text-align:center">
-
-                      </h4>
+                            <a class="btn" href="<?= Url::to(['product/view','id'=>$product->id]) ?> "><i class="icon-zoom-in"></i></a>
+                            <a class="btn" href="<?= Url::to(['product/view','id'=>$product->id]) ?>">Views   <?= $product->view->views ?></a>
+                            <a class="btn btn-primary" href="<?= Url::to(['product/view','id'=>$product->id]) ?>">$ <?= $product->price ?></a>
+                        </h4>
                     </div>
                 </div>
             </li>
