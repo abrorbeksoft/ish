@@ -57,12 +57,11 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model=new ProductModel();
-        $model->image1=UploadedFile::getInstance($model,'image1');
 
         $request=Yii::$app->request;
-        if ($model->load(Yii::$app->request->post()))
+        if ($request->isPost && $model->load($request->post()))
         {
-
+            $model->image1=UploadedFile::getInstance($model,'image1');
             if (!$model->addNew())
             {
                 print_r($model->getErrors());

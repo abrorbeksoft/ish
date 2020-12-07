@@ -3,7 +3,7 @@
 
 namespace frontend\models;
 
-
+use yii\helpers\Url;
 use yii\base\Model;
 
 class ProductModel extends Model
@@ -28,13 +28,13 @@ class ProductModel extends Model
     {
         if ($this->validate())
         {
-            $name1=$this->image1->basName.'.'.$this->image1->extension;
-
+            $name1='images/store/'.$this->image1->baseName.'.'.$this->image1->extension;
+            $this->image1->saveAs($this->uploadPath().$name1);
 
             $product=new Product();
             $product->name=$this->name;
             $product->price=$this->price;
-            $product->image1='uploads/'.$name1;
+            $product->image1=$name1;
             $product->image2='image.jpg';
             $product->image3='image.jpg';
             $product->text=$this->text;
@@ -48,6 +48,10 @@ class ProductModel extends Model
         {
             return null;
         }
+    }
+    public function uploadPath()
+    {
+        return '@frontend/web/themes/';
     }
 
 }
