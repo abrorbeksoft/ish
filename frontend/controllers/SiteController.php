@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use frontend\models\Category;
 use frontend\models\Product;
+use frontend\models\ProductModel;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use frontend\models\View;
@@ -106,6 +107,19 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionMypost()
+    {
+        $productModel=new ProductModel();
+
+        $id=Yii::$app->user->identity->getId();
+        $products=Product::findAll(['user_id'=>$id]);
+
+        return $this->render('mypost',[
+            'myposts'=>$products,
+            'model'=>$productModel
+        ]);
     }
 
     /**

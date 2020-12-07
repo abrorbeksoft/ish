@@ -73,7 +73,9 @@ AppAsset::register($this);
                     <li class=""><a href="<?php echo  Url::to(['site/index']) ?>" >Home </a> </li>
                     <li class=""><a  href="<?php echo  Url::to(['site/about']) ?>">About  </a></li>
                     <li class=""><a href="<?php echo  Url::to(['site/contact']) ?>">Contact</a></li>
-                   <?php
+                    <li class=""><a href="<?= Url::to(['site/mypost']) ?>">My posts</a></li>
+
+                    <?php
                    if (Yii::$app->user->isGuest) {
                       echo '<li class=""><a href="'.  Html::encode(Url::to(["site/signup"])) .'">Signup</a></li>';
                       echo '<li class=""><a href="'. Html::encode(Url::to(["site/login"])) .'">Login</a></li>';
@@ -137,7 +139,6 @@ AppAsset::register($this);
             <div class="row">
                 <div class="span3">
                     <div id="sidebar" class="span3">
-                        
 
                         <?= SidebarWidget::widget(['categories'=>\frontend\models\Category::find()->indexBy('id')->all()])  ?>
 

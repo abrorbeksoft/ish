@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="<?= Yii::getAlias('@image') ?>/<?= Yii::$app->user->identity->image ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= Yii::$app->user->identity->username ?></a>
@@ -25,12 +25,15 @@
             echo \hail812\adminlte3\widgets\Menu::widget([
                 'items' => [
                     [
-                        'label' => 'Starter Pages',
+                        'label' => 'Database',
                         'icon' => 'tachometer-alt',
                         'badge' => '<span class="right badge badge-info">2</span>',
                         'items' => [
-                            ['label' => 'Active Page', 'url' => ['site/index'], 'iconStyle' => 'far'],
-                            ['label' => 'Inactive Page', 'iconStyle' => 'far'],
+                            ['label' => 'User', 'url' => ['user/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Category','url'=>['category/index'], 'iconStyle' => 'far'],
+                            ['label' => 'SubCategory', 'url'=>['subCategory/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Product','url'=>['product/index'] , 'iconStyle' => 'far'],
+
                         ]
                     ],
                     ['label' => 'Simple Link', 'icon' => 'th', 'badge' => '<span class="right badge badge-danger">New</span>'],
